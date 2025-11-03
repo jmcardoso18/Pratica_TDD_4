@@ -60,6 +60,8 @@ python manage.py runserver
 | **Senha** | `fatec´ |
 
 ---
+## 🧩 Diagrama de caso e uso
+![Diagrama de caso e uso](caso_uso.png) 
 
 ## 🧩 Funcionalidades Implementadas
 
@@ -71,10 +73,26 @@ python manage.py runserver
 - Testes unitários e de integração com **cobertura acima de 90%**.
 
 **Telas:**
-- Tela de Login  
+![Tela Login](login.png)
+- Tela de Login 
+
+![Tela Index](index.png)
 - Tela Index (após login)  
+
+![tela logout](logout.png)
 - Tela de Logout  
 
+![Tela de cadastro](image-2.png)
+- Tela de Cadastro
+
+![Editar cadastro](image-4.png)
+- Tela de Edição  
+
+![Tela de Exibição](image-3.png)
+- Tela de Exibir 
+
+![Tela de delete](image-5.png)
+- Tela de delete  
 ---
 
 ### 🔵 **Sprint 2 – CRUD Completo de Contatos**
@@ -91,7 +109,7 @@ Foi implementado um **CRUD completo da agenda de contatos**, conforme o modelo d
 
 **Modelo de Dados (Agenda):**
 ```python
-class Contato(models.Model):
+class Agenda(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15)
     email = models.EmailField()
