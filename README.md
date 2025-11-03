@@ -1,13 +1,29 @@
-# Prática TDD 4
+# 🧪 Prática TDD 4 — Agenda de Contatos com Django  
 
-Desafio técnico para os alunos da disciplina "Desenvolvimento Web 3"
+Desafio técnico desenvolvido na disciplina **Desenvolvimento Web 3**, com foco em **Test-Driven Development (TDD)** e **Django Framework**.  
 
+O projeto consiste em uma **Agenda de Contatos** com autenticação e controle de acesso, implementada em duas sprints:  
+1. **Sprint 1** – Sistema de login/logout com validação de e-mail institucional.  
+2. **Sprint 2** – CRUD completo de contatos (criar, listar, editar e remover), protegido para usuários autenticados.  
 
+---
 
+## 🚀 Tecnologias Utilizadas
 
-No ambiente Linux:
+- **Python 3.x**
+- **Django 5.x**
+- **SQLite3** (banco de dados padrão)
+- **Virtualenv**
+- **Coverage.py** (para análise de cobertura de testes)
+- **HTML + CSS (Bootstrap)**
 
-```console
+---
+
+## ⚙️ Instalação e Execução do Projeto
+
+### 💻 Ambiente Linux
+
+```bash
 git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
 cd Pratica_TDD_4/
 virtualenv -p python3 venv
@@ -15,89 +31,103 @@ source venv/bin/activate
 pip install -r requirements.txt
 cd agenda/
 python manage.py migrate
-python manage.py test
-coverage run --source='.' manage.py test 
-coverage html
 python manage.py createsuperuser
 python manage.py runserver
 ```
 
-No ambiente Windows:
+### 🪟 Ambiente Windows
 
-```console
+```bash
 git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
 cd Pratica_TDD_4/
 virtualenv venv
-cd venv
-cd scripts
-activate.bat
-cd ..
-cd ..
+venv\Scripts\activate
 pip install -r requirements.txt
 cd agenda/
 python manage.py migrate
-python manage.py test
-coverage run --source='.' manage.py test 
-coverage html
 python manage.py createsuperuser
 python manage.py runserver
-
 ```
 
-Crie um superusuário com as seguintes credenciais:
+---
 
-- Username <b>admin</b>:
-- E-mail address <b>seu e-mail institucional</b>:
-- Password <b>fatec</b>:
+## 🔐 Credenciais do Superusuário
 
-### Requisitos da Sprint 1
+| Campo | Valor |
+|-------|-------|
+| **Username** | `admin` |
+| **E-mail** | *seu e-mail institucional (@fatec.sp.gov.br)* |
+| **Senha** | `fatec´ |
 
-<img src="caso_uso.png">
+---
 
-A expectativa do projeto é que tenha-se uma agenda. O que foi priorizado na primeira sprint foi o sistema de login/logout.
-O login somente pode ocorrer com o e-mail institucional @fatec.sp.gov.br 
+## 🧩 Funcionalidades Implementadas
 
+### 🟢 **Sprint 1 – Autenticação e Controle de Acesso**
 
-<img src="login.png">
+- Login de usuário utilizando **e-mail institucional** (`@fatec.sp.gov.br`);
+- Logout seguro com redirecionamento para a tela inicial;
+- Páginas protegidas para acesso restrito de usuários autenticados;
+- Testes unitários e de integração com **cobertura acima de 90%**.
 
-Imagem 1: Tela de Login
+**Telas:**
+- Tela de Login  
+- Tela Index (após login)  
+- Tela de Logout  
 
-<img src="index.png">
+---
 
-Imagem 2: Tela index
+### 🔵 **Sprint 2 – CRUD Completo de Contatos**
 
-<img src="logout.png">
-Imagem 3: Tela logout
+Foi implementado um **CRUD completo da agenda de contatos**, conforme o modelo de dados definido.
 
-## Requisitos para a Sprint 2
+**Funcionalidades:**
+- ✅ **Cadastrar contato**  
+- ✅ **Listar contatos**  
+- ✅ **Editar contato**  
+- ✅ **Remover contato**  
+- ✅ **Acesso restrito a usuários logados**  
+- ✅ **Validação de dados via Django Forms**  
 
-Agora começa o seu desafio: desenvolver uma agenda de contatos completa com CRUD.
+**Modelo de Dados (Agenda):**
+```python
+class Contato(models.Model):
+    nome = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=15)
+    email = models.EmailField()
+    endereco = models.CharField(max_length=255)
+```
 
-Com base no modelo implementado (ver imagem abaixo), você deve:
-<img src="model.png">
+---
 
+## 🧪 Testes e Cobertura
 
-✅ Criar um formulário para o modelo Agenda (pode usar Forms ou ModelForms);
+Para executar os testes e gerar o relatório de cobertura:
 
-Implementar as seguintes funcionalidades:
+```bash
+coverage run --source='.' manage.py test
+coverage html
+```
 
-✅ Cadastrar contato
+Acesse o relatório em:
+```
+htmlcov/index.html
+```
 
-✅ Listar contatos
+📊 **Cobertura de testes:** acima de **90%** em todas as camadas (views, forms e models).
 
-✅ Atualizar contato
+---
+![Resultado da cobertura em 90%](image-1.png)
+---
 
-✅ Remover contato
+## 👩‍💻 Autor(a)
 
-Proteger todas essas funcionalidades para que apenas usuários logados tenham acesso.
+**Jamila M. Cardoso**  
+Desenvolvedora Full-Stack em formação  
+📧 *[jamila.cardoso@fatec.sp.gov.br]*  
 
-Ao final da Sprint 2, o sistema deverá conter um CRUD funcional de contatos em Django.
+---
 
+## 🧭 Considerações Finais
 
-## Ajustes nos testes / novos testes
-
-O código fonte passará por atualizações para acomodar estes novos requisitos. Com isso, você deve ajudar os testes existentes e criar novos testes.
-
-Você recebeu a sprint 1 com uma cobertura de teste acima de 90%. É esperado que ao final da sprint 2 a cobertura mantenha-se neste patamar.
-
-<img src="cobertura_testes.png">
+O projeto **Prática TDD 4** demonstra a aplicação de **boas práticas de desenvolvimento com Django**, **testes automatizados** e **controle de acesso seguro**, consolidando o aprendizado das disciplinas de **Desenvolvimento Web 3** e **Test-Driven Development**.
