@@ -24,7 +24,7 @@ O projeto consiste em uma **Agenda de Contatos** com autenticação e controle d
 ### 💻 Ambiente Linux
 
 ```bash
-git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
+git clone https://github.com/jmcardoso18/Pratica_TDD_4
 cd Pratica_TDD_4/
 virtualenv -p python3 venv
 source venv/bin/activate
@@ -38,7 +38,7 @@ python manage.py runserver
 ### 🪟 Ambiente Windows
 
 ```bash
-git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
+git clone https://github.com/jmcardoso18/Pratica_TDD_4
 cd Pratica_TDD_4/
 virtualenv venv
 venv\Scripts\activate
